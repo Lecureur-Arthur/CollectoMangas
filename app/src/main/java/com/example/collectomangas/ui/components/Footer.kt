@@ -22,7 +22,7 @@ fun Footer(
     selectedItem: Int,
     onItemSelected: (Int) -> Unit
 ) {
-    val items = listOf("Accueil", "Collection", "Lecture", "Théorie")
+    val items = listOf("Home", "Collection", "Reading", "Theory")
     val icons = listOf(
         Icons.Default.Home,
         Icons.Default.CollectionsBookmark,

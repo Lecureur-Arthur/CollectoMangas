@@ -25,12 +25,6 @@ import com.example.collectomangas.ui.screens.TheorieScreen
 import com.example.collectomangas.ui.theme.CollectoMangasTheme
 import com.example.collectomangas.ui.theme.LightColorScheme
 
-//private val LightColorScheme = lightColorScheme(
-//    primary = RoseChaud,
-//    secondary = BeigeRose,
-//    background = RosePale
-//)
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services") // ajoute ce plugin ici
 }
 
 android {
@@ -69,5 +70,7 @@ dependencies {
 
     implementation ("androidx.compose.material3:material3:1.0.0")
 
+    // Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
 
 }

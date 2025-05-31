@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.collectomangas.data.api.ApiClient
 import com.example.collectomangas.data.model.MangaData
@@ -65,7 +66,7 @@ fun MangaCard(
         ) {
             Row(modifier = Modifier.padding(0.dp)) {
                 Image(
-                    painter = rememberImagePainter(data.attributes.posterImage.original),
+                    painter = rememberAsyncImagePainter(data.attributes.posterImage.original),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier

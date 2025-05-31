@@ -1,6 +1,7 @@
 package com.example.collectomangas.ui.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.CollectionsBookmark
 import androidx.compose.material.icons.filled.Home
@@ -26,7 +27,7 @@ fun Footer(
     val icons = listOf(
         Icons.Default.Home,
         Icons.Default.CollectionsBookmark,
-        Icons.Default.MenuBook,
+        Icons.AutoMirrored.Filled.MenuBook,
         Icons.Default.Book
     )
 

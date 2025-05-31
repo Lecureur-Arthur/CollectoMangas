@@ -24,10 +24,9 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .align(Alignment.Center)
                 .verticalScroll(scrollState),
-            //horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Collecto'Mangas est l’application idéale pour tous les passionnés de mangas qui veulent garder leur collection bien organisée et leur imagination toujours active !\n",
+                text = "Collecto'Mangas is the perfect app for all manga lovers who want to keep their collection well organized and their imagination always active!\n",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
@@ -36,7 +35,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
             )
 
             Text(
-                text = "📖 Suivi de collection physique",
+                text = "📖 Physical Collection Tracking",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
@@ -44,7 +43,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(top = 12.dp)
             )
             Text(
-                text = "Indique facilement les tomes que tu possèdes déjà, pour ne plus jamais acheter un doublon par erreur !\n",
+                text = "Easily mark the volumes you already own, so you never accidentally buy a duplicate again!\n",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 14.sp,
                     lineHeight = 18.sp
@@ -52,7 +51,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
             )
 
             Text(
-                text = "🔖 Progression de lecture",
+                text = "🔖 Reading Progress",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
@@ -60,7 +59,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(top = 12.dp)
             )
             Text(
-                text = "Garde une trace du dernier chapitre que tu as lu pour chaque manga, et reprends ta lecture exactement là où tu t’étais arrêté.\n",
+                text = "Keep track of the last chapter you read for each manga, and pick up right where you left off.\n",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 14.sp,
                     lineHeight = 18.sp
@@ -68,7 +67,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
             )
 
             Text(
-                text = "🧠 Espace théories",
+                text = "🧠 Theory Space",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
@@ -76,7 +75,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(top = 12.dp)
             )
             Text(
-                text = "Une idée de twist ? Une théorie sur le prochain arc ? Note toutes tes hypothèses et réflexions directement dans l’appli, manga par manga !\n",
+                text = "Got a twist in mind? A theory about the next arc? Write down all your thoughts and hypotheses directly in the app, manga by manga!\n",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 14.sp,
                     lineHeight = 18.sp
@@ -84,7 +83,7 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
             )
 
             Text(
-                text = "Collecto'Mangas, c’est ton espace personnel pour vivre encore plus intensément ta passion du manga. Organisé, simple et conçu pour les vrais fans.",
+                text = "Collecto'Mangas is your personal space to live your manga passion even more intensely. Organized, simple, and made for true fans.",
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
@@ -95,5 +94,3 @@ fun AccueilScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
-

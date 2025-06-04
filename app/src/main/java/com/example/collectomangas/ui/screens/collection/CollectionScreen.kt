@@ -54,7 +54,12 @@ fun CollectionScreen(navController: NavController) {
                 .padding(bottom = 100.dp)
         ) {
             mangaTitles.forEach { title ->
-                MangaCard(title = title)
+                MangaCard(
+                    title = title,
+                    onClick = {
+                        navController.navigate(RouteDetailsMangaScreen(title))
+                    }
+                )
             }
         }
 

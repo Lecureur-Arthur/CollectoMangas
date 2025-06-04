@@ -34,7 +34,8 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MangaCard(
-    title: String
+    title: String,
+    onClick: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
     var mangaData by remember { mutableStateOf<MangaData?>(null) }
@@ -58,6 +59,7 @@ fun MangaCard(
             ?: data.attributes.canonicalTitle
 
         Card(
+            onClick = onClick,
             shape = cardShape,
             elevation = CardDefaults.cardElevation(6.dp),
             modifier = Modifier

@@ -1,4 +1,4 @@
-package com.example.collectomangas.ui.screens
+package com.example.collectomangas.ui.screens.collection
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

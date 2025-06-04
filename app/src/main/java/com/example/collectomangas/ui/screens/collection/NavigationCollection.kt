@@ -7,7 +7,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.collectomangas.ui.screens.ComingSoonScreen
-import com.example.collectomangas.ui.screens.DetailsMangaScreen
 import kotlinx.serialization.Serializable
 
 @Composable

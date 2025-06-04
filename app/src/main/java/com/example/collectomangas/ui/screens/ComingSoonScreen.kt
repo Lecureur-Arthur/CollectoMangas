@@ -24,22 +24,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.collectomangas.ui.screens.collection.RouteCollectionScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ComingSoonScreen(onBack: () -> Unit) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Coming Soon") },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Retour")
-                    }
-                }
-            )
-        }
-    ) { innerPadding ->
+fun ComingSoonScreen(navController: NavController) {
+    Scaffold() { innerPadding ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -71,7 +62,9 @@ fun ComingSoonScreen(onBack: () -> Unit) {
                 Spacer(modifier = Modifier.height(32.dp))
 
                 Button(
-                    onClick = onBack,
+                    onClick = {
+                        navController.navigate(RouteCollectionScreen)
+                    },
                     modifier = Modifier
                         .fillMaxWidth(0.7f) // 70% de la largeur de l'écran
                         .height(56.dp)       // Hauteur du bouton

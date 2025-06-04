@@ -1,33 +1,28 @@
 package com.example.collectomangas.ui.components
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.MenuBook
-import androidx.compose.material.icons.filled.Book
-import androidx.compose.material.icons.filled.CollectionsBookmark
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.collectomangas.ui.navigation.BottomNavItem
 import com.example.collectomangas.ui.theme.LightColorScheme
 
 @Composable
-fun Footer(
-    selectedItem: Int,
-    onItemSelected: (Int) -> Unit
-) {
-    val items = listOf("Home", "Collection", "Reading", "Theory")
-    val icons = listOf(
-        Icons.Default.Home,
-        Icons.Default.CollectionsBookmark,
-        Icons.AutoMirrored.Filled.MenuBook,
-        Icons.Default.Book
+fun Footer(navController: NavController) {
+    val items = listOf(
+        BottomNavItem.Home,
+        BottomNavItem.Collection,
+        BottomNavItem.Read,
+        BottomNavItem.Theory
     )
 
     NavigationBar(
@@ -35,23 +30,36 @@ fun Footer(
         containerColor = LightColorScheme.primary,
         contentColor = LightColorScheme.secondary
     ) {
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
+
         items.forEachIndexed { index, item ->
             NavigationBarItem(
                 icon = {
                     Icon(
-                        imageVector = icons[index],
-                        contentDescription = item,
-                        tint = if (selectedItem == index) Color.White else LightColorScheme.secondary
+                        imageVector = item.icon,
+                        contentDescription = item.label,
+                        //tint = if (selectedItem == index) Color.White else LightColorScheme.secondary
                     )
                 },
                 label = {
                     Text(
-                        text = item.uppercase(),
-                        color = if (selectedItem == index) Color.White else LightColorScheme.secondary
+                        text = item.label.uppercase(),
+                        //color = if (selectedItem == index) Color.White else LightColorScheme.secondary
                     )
                 },
-                selected = selectedItem == index,
-                onClick = { onItemSelected(index) },
+                selected = currentRoute == item.route,
+                onClick = {
+                    if (currentRoute != item.route) {
+                        navController.navigate(item.route) {
+                            popUpTo(navController.graph.startDestinationId) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.White,
                     selectedTextColor = Color.White,
@@ -62,4 +70,7 @@ fun Footer(
             )
         }
     }
+
+
+
 }

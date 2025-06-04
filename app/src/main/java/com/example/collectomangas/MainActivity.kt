@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.collectomangas.ui.screens.DetailsMangaScreen
 import com.example.collectomangas.ui.screens.MainScreen
 import com.example.collectomangas.ui.theme.CollectoMangasTheme
 
@@ -27,4 +28,10 @@ fun MainScreenPreview() {
     CollectoMangasTheme {
         MainScreen()
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DetailsMangaScreenPreview() {
+    DetailsMangaScreen("One piece")
 }

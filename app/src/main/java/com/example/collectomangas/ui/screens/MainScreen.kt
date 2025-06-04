@@ -11,13 +11,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.collectomangas.ui.components.Footer
 import com.example.collectomangas.ui.components.Header
+import com.example.collectomangas.ui.navigation.BottomNavItem
 import com.example.collectomangas.ui.theme.LightColorScheme
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.NavHost
+
 
 @Composable
 fun MainScreen() {
-    var selectedItem by remember { mutableStateOf(0) }
+    val navController = rememberNavController()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -27,14 +33,18 @@ fun MainScreen() {
             containerColor = Color.Transparent,
             topBar = { Header() },
             bottomBar = {
-                Footer(selectedItem = selectedItem, onItemSelected = { selectedItem = it })
+                Footer(navController)
             }
-        ) { innerPadding ->
-            when (selectedItem) {
-                0 -> AccueilScreen(Modifier.padding(innerPadding))
-                1 -> CollectionScreen(Modifier.padding(innerPadding))
-                2 -> LectureScreen(Modifier.padding(innerPadding))
-                3 -> TheorieScreen(Modifier.padding(innerPadding))
+        ) { padding ->
+            NavHost(
+                navController = navController,
+                startDestination = BottomNavItem.Home.route,
+                modifier = Modifier.padding(padding)
+            ) {
+                composable(BottomNavItem.Home.route) { AccueilScreen(Modifier.padding(padding)) }
+                composable(BottomNavItem.Collection.route) { CollectionScreen(Modifier.padding(padding)) }
+                composable(BottomNavItem.Read.route) { LectureScreen(Modifier.padding(padding)) }
+                composable(BottomNavItem.Theory.route) { TheorieScreen(Modifier.padding(padding)) }
             }
         }
     }

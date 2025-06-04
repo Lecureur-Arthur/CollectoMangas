@@ -43,11 +43,7 @@ fun CollectionScreen(modifier: Modifier = Modifier) {
     if (showComingSoon) {
         ComingSoonScreen(onBack = { showComingSoon = false })
     } else {
-        Scaffold(
-            topBar = {
-                TopAppBar(title = { Text("Ma Collection") })
-            }
-        ) { innerPadding ->
+        Scaffold() { innerPadding ->
             Box(
                 modifier = Modifier
                     .padding(
@@ -74,7 +70,7 @@ fun CollectionScreen(modifier: Modifier = Modifier) {
                         .align(Alignment.BottomCenter)
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 8.dp)
-                        .padding(bottom = 80.dp),
+                        .padding(bottom = 10.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {

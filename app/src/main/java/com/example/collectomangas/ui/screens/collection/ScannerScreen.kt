@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.example.collectomangas.data.camera.BarcodeScannerView
 import com.example.collectomangas.data.api.GoogleBooksApi
+import com.example.collectomangas.data.FirebaseMangaRepository
 import kotlinx.coroutines.launch
 
 @Composable
@@ -37,7 +38,6 @@ fun ScannerScreen() {
         hasCameraPermission = granted
     }
 
-    // Demander la permission à l'ouverture
     LaunchedEffect(Unit) {
         if (!hasCameraPermission) {
             permissionLauncher.launch(Manifest.permission.CAMERA)
@@ -46,6 +46,9 @@ fun ScannerScreen() {
 
     var isbn by remember { mutableStateOf<String?>(null) }
     var title by remember { mutableStateOf<String?>(null) }
+    var successMessage by remember { mutableStateOf<String?>(null) }
+    var errorMessage by remember { mutableStateOf<String?>(null) }
+
     val coroutineScope = rememberCoroutineScope()
 
     if (hasCameraPermission) {
@@ -54,7 +57,6 @@ fun ScannerScreen() {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            // Scanner
             BarcodeScannerView { detectedISBN ->
                 isbn = detectedISBN
                 coroutineScope.launch {
@@ -70,6 +72,34 @@ fun ScannerScreen() {
 
             title?.let {
                 Text("Titre du livre : $it", style = MaterialTheme.typography.titleMedium)
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Button(onClick = {
+                    FirebaseMangaRepository.addManga(
+                        title = it,
+                        onSuccess = {
+                            successMessage = "Manga ajouté avec succès dans Firebase !"
+                            errorMessage = null
+                        },
+                        onFailure = { e ->
+                            errorMessage = "Erreur : ${e.message}"
+                            successMessage = null
+                        }
+                    )
+                }) {
+                    Text("Ajouter à ma collection")
+                }
+            }
+
+            successMessage?.let {
+                Spacer(modifier = Modifier.height(12.dp))
+                Text(it, color = MaterialTheme.colorScheme.primary)
+            }
+
+            errorMessage?.let {
+                Spacer(modifier = Modifier.height(12.dp))
+                Text(it, color = MaterialTheme.colorScheme.error)
             }
         }
     } else {

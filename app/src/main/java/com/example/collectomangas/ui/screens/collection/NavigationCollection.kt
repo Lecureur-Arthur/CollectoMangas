@@ -23,7 +23,7 @@ fun NavigationCollection(modifier: Modifier =Modifier) {
             ComingSoonScreen(navController)
         }
         composable<RouteScannerScreen> {
-            ScannerScreen()
+            ScannerScreen(navController)
         }
         composable<RouteDetailsMangaScreen> {
             val title = it.toRoute < RouteDetailsMangaScreen > ().title

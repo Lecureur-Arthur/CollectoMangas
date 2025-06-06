@@ -27,9 +27,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreenPreview() {
     CollectoMangasTheme {
-        //MainScreen()
-        ScannerScreen()
-
+        MainScreen()
     }
 }
 

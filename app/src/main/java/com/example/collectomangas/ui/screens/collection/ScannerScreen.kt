@@ -13,13 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import com.example.collectomangas.data.camera.BarcodeScannerView
 import com.example.collectomangas.data.api.GoogleBooksApi
 import com.example.collectomangas.data.FirebaseMangaRepository
 import kotlinx.coroutines.launch
 
 @Composable
-fun ScannerScreen() {
+fun ScannerScreen(navController: NavController) {
     val context = LocalContext.current
     val activity = context as? Activity
 
@@ -81,6 +82,7 @@ fun ScannerScreen() {
                         onSuccess = {
                             successMessage = "Manga ajouté avec succès dans Firebase !"
                             errorMessage = null
+                            navController.navigate(RouteCollectionScreen)
                         },
                         onFailure = { e ->
                             errorMessage = "Erreur : ${e.message}"

@@ -22,6 +22,9 @@ fun NavigationCollection(modifier: Modifier =Modifier) {
         composable<RouteComingSoonScreen> {
             ComingSoonScreen(navController)
         }
+        composable<RouteScannerScreen> {
+            ScannerScreen()
+        }
         composable<RouteDetailsMangaScreen> {
             val title = it.toRoute < RouteDetailsMangaScreen > ().title
             DetailsMangaScreen(title)
@@ -32,6 +35,9 @@ fun NavigationCollection(modifier: Modifier =Modifier) {
 
 @Serializable
 object RouteCollectionScreen
+
+@Serializable
+object RouteScannerScreen
 
 @Serializable
 data class RouteDetailsMangaScreen(val title: String)

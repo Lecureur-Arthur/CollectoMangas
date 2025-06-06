@@ -74,7 +74,7 @@ fun CollectionScreen(navController: NavController) {
         ) {
             Button(
                 onClick = {
-                    navController.navigate(RouteComingSoonScreen)
+                    navController.navigate(RouteScannerScreen)
                 },
                 modifier = Modifier
                     .height(56.dp)

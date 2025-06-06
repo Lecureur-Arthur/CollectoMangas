@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.collectomangas.ui.screens.collection.DetailsMangaScreen
 import com.example.collectomangas.ui.screens.MainScreen
+import com.example.collectomangas.ui.screens.collection.ScannerScreen
 import com.example.collectomangas.ui.theme.CollectoMangasTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +27,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreenPreview() {
     CollectoMangasTheme {
-        MainScreen()
+        //MainScreen()
+        ScannerScreen()
+
     }
 }
 
